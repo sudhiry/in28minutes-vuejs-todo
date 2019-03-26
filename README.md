@@ -1,4 +1,4 @@
-# todo
+# in28minutes-vuejs-todo
 
 ## Project setup
 ```
