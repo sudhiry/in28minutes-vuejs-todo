@@ -2,7 +2,7 @@
   <div>
     <h1>Welcome!</h1>
     <div class="container">
-      Welcome {{ username }}. You can manage your todos <a href="/todos">here</a>
+      Welcome {{ username }}. You can manage your todos <router-link to="/todos" >here</router-link>
     </div>
   </div>
 </template>

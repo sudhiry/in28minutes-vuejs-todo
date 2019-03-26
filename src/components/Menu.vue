@@ -7,19 +7,23 @@
 
       <ul class="navbar-nav">
         <li>
-          <a href="/welcome/in28minutes" class="nav-link">Home</a>
+          <!-- <a href="/welcome/in28minutes" class="nav-link">Home</a> -->
+          <router-link to="/welcome/in28minutes" class="nav-link">Home</router-link>
         </li>
         <li>
-          <a href="/todos" class="nav-link">Todos</a>
+          <!-- <a v-if="authState.isAuthenticated" href="/todos" class="nav-link">Todos</a> -->
+          <router-link v-if="authState.isAuthenticated" to="/todos" class="nav-link">Todos</router-link>
         </li>
       </ul>
 
       <ul class="navbar-nav navbar-collapse justify-content-end">
         <li>
-          <a href="/login" class="nav-link">Login</a>
+          <!-- <a v-if="!authState.isAuthenticated" href="/login" class="nav-link">Login</a> -->
+          <router-link v-if="!authState.isAuthenticated" to="/login" class="nav-link">Login</router-link>
         </li>
         <li>
-          <a href="/logout" class="nav-link" >Logout</a>
+          <!-- <a v-if="authState.isAuthenticated" href="/logout" class="nav-link" >Logout</a> -->
+          <router-link v-if="authState.isAuthenticated" to="/logout" class="nav-link">Logout</router-link>
         </li>
       </ul>
     </nav>
@@ -27,10 +31,14 @@
 </template>
 
 <script>
+import store from '../store';
+
 export default {
   name: "Menu",
-  components: {
-    
+  data() {
+    return {
+      authState: store.state
+    };
   }
 };
 </script>

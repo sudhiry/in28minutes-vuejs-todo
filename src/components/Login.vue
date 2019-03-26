@@ -2,6 +2,7 @@
   <div>
     <h1>Login!</h1>
     <div class="container">
+      <div v-if="invalidLogin" className="alert alert-warning">{{errorMessage}}</div>
       <form v-on:submit.prevent="onSubmit(username, password);">
         <fieldset class="form-group">
           <input
@@ -26,17 +27,29 @@
 </template>
 
 <script>
+import store from '../store';
+
 export default {
   name: "Login",
   data() {
     return {
-      username: null,
-      password: null
+      username: "in28minutes",
+      password: "",
+      invalidLogin: false,
+      errorMessage: "Invalid Credentials"
     };
   },
   methods: {
     onSubmit(username, password) {
-      console.info(username, password); // eslint-disable-line
+      if(username === "in28minutes" && password === "dummy") {
+        store.login({
+          username,
+          isAuthenticated: true
+        });
+        this.$router.push(`/welcome/${username}`)
+      } else {
+        this.invalidLogin = true;
+      }
     }
   }
 };
