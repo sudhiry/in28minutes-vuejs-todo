@@ -42,6 +42,18 @@ const router = new Router({
             }
         },
         {
+            path: "/todo/:id",
+            name: "Todo",
+            component: () => import("./components/Todo"),
+            beforeEnter: (to, from, next) => {
+                if(store.state.isAuthenticated) {
+                    next()
+                } else {
+                    next({path:'/login', fromLink: to})
+                }
+            }
+        },
+        {
             path: "/logout",
             name: "Logout",
             component: () => import("./components/Logout"),

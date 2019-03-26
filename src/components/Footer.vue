@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <span class="text-muted">All Rights Reserved 2018 @in28minutes</span>
+      <span class="text-muted">All Rights Reserved 2018 - {{new Date().getFullYear()}} @in28minutes</span>
     </div>
   </footer>
 </template>
