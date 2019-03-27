@@ -2,7 +2,7 @@
   <div>
     <h1>Login!</h1>
     <div class="container">
-      <div v-if="invalidLogin" className="alert alert-warning">{{errorMessage}}</div>
+      <div v-if="invalidLogin" class="alert alert-warning">{{errorMessage}}</div>
       <form v-on:submit.prevent="onSubmit(username, password);">
         <fieldset class="form-group">
           <input

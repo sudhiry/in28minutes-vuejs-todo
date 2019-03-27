@@ -4,7 +4,7 @@
     <div class="container">
       <form @submit="validateAndSubmit">
         <div v-if="errors.length">
-            <div v-bind:key="index" v-for="(error, index) in errors"> {{error}} </div>
+            <div class="alert alert-warning" v-bind:key="index" v-for="(error, index) in errors"> {{error}} </div>
         </div>
         <fieldset class="form-group">
           <label>Description</label>
